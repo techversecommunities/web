@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social link not available</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        div {
+            display: block;
+            text-align: center;
+            color: #343434;
+            font-family: sans-serif;
+        }
+
+        button.btn.btn-primary {
+            background: #1c7ff2 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="cute.png" />
+        <h5 id="message">The community chapter does not have a handle on the selected social media platform</h5>
+        <a href="https://techverse.ltd/"><button class="btn btn-outline-primary">Back to home</button></a>
+    </div>
+    
+    <script>
+        window.onload = function () {
+            const url = new URL(window.location)
+            const communityName = url.searchParams.get("communityName")
+            const social = url.searchParams.get("social")
+            if (communityName && social) {
+                document.getElementById("message").innerHTML = `${communityName} community chapter does not have a handle on ${social}`
+            }
+        }
+    </script>
+</body>
+
+</html>
